@@ -19,7 +19,7 @@ This is a simple Java application using Maven, Jenkins pipeline, Docker, and Nex
 5. Push to GitHub & configure Jenkins pipeline.
 
 
-## Setup-step-by-step
+## Setup Step-by-Step
 
-https://github.com/tribhuwanpandey/Simple-maven-project/blob/main/setup-instructions.md
+[Getting Started](https://github.com/tribhuwanpandey/Simple-maven-project/blob/main/setup-instructions.md)
 
