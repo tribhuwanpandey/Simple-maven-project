@@ -2,15 +2,16 @@ pipeline {
     agent any
 
     environment {
-        NEXUS_URL = 'http://nexus.example.com/repository/maven-releases/'
+        APP_NAME = "my-app"
         NEXUS_CREDENTIALS_ID = 'nexus-credentials'
+        MAVEN_TOOL = 'M3'
         DOCKER_IMAGE = 'my-app-image'
     }
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                git 'https://github.com/your-repo/my-app.git'
+                git branch: 'main', url: 'https://github.com/tribhuwanpandey/Simple-maven-project.git'
             }
         }
 
@@ -20,19 +21,10 @@ pipeline {
             }
         }
 
-        stage('Push Artifact to Nexus') {
+        stage('Upload Artifact to Nexus') {
             steps {
-                withCredentials([usernamePassword(credentialsId: env.NEXUS_CREDENTIALS_ID, usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                    sh '''
-                    mvn deploy:deploy-file \
-                        -Durl=${NEXUS_URL} \
-                        -DrepositoryId=nexus-releases \
-                        -DgroupId=com.example \
-                        -DartifactId=my-app \
-                        -Dversion=1.0-SNAPSHOT \
-                        -Dpackaging=jar \
-                        -Dfile=target/my-app-1.0-SNAPSHOT.jar
-                    '''
+                withMaven(maven: "${MAVEN_TOOL}") {
+                    sh "mvn deploy -s /var/lib/jenkins/.m2/settings.xml -DskipTests"
                 }
             }
         }
