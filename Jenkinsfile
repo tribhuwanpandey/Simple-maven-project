@@ -35,17 +35,7 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh '''
-                    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                    docker tag ${DOCKER_IMAGE}:latest your-docker-repo/${DOCKER_IMAGE}:latest
-                    docker push your-docker-repo/${DOCKER_IMAGE}:latest
-                    '''
-                }
-            }
-        }
+
     }
 
     post {
