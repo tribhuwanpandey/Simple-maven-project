@@ -17,3 +17,9 @@ This is a simple Java application using Maven, Jenkins pipeline, Docker, and Nex
 3. Build Docker: `docker build -t my-app-image:latest .`
 4. Run Docker: `docker run --rm my-app-image:latest`
 5. Push to GitHub & configure Jenkins pipeline.
+
+
+## Setup-step-by-step
+
+https://github.com/tribhuwanpandey/Simple-maven-project/blob/main/setup-instructions.md
+
