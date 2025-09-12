@@ -152,5 +152,12 @@ sudo systemctl restart nginx
 
 ---
 
+<img width="1881" height="910" alt="Screenshot 2025-09-09 181934" src="https://github.com/user-attachments/assets/34d8a279-427e-4f0e-996f-f1adc28ab562" />
+
+
+<img width="1915" height="719" alt="Screenshot 2025-09-09 181950" src="https://github.com/user-attachments/assets/ec9912c8-d75a-416a-ada5-6f44d7065b00" />
+
+
+
 ## ✅ Done
 Your Maven app is now built, uploaded to Nexus, and deployed using Docker & Jenkins.
